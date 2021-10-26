@@ -1,3 +1,7 @@
+datadump:
+  location:
+    author: /Users/skminfotech/IdeaProjects/upgraded-pancake/myreads/src/main/resources/test-author.txt
+    works: /Users/skminfotech/IdeaProjects/upgraded-pancake/myreads/src/main/resources/test-works.txt
 spring:
   security:
     oauth2:
@@ -9,8 +13,8 @@ spring:
   data:
     cassandra:
       keyspace-name: main
-      username: <username>
-      password: <password>
+      username:
+      password:
       schema-action: create_if_not_exists
       request:
         timeout: 10s
@@ -20,7 +24,7 @@ spring:
 datastax.astra:
   secure-connect-bundle: secure-connect-myreads.zip
 astra.db:
-  id: <astra-db-id>
+  id:
   region: us-central1
   keyspace: myreads
-  application.token: <token>
+  application.token:
