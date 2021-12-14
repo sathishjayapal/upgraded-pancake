@@ -6,25 +6,32 @@ spring:
   security:
     oauth2:
       client:
+
         registration:
           github:
-            client-id:
-            client-secret:
+            client-id: Iv1.b290fce65510dacb
+            client-secret: f4541a1b78e7b05b7452d75f761ff5f34764f232
+  application:
+    name: mybooks
   data:
     cassandra:
       keyspace-name: main
-      username:
-      password:
-      schema-action: create_if_not_exists
+      username: csDroILwWBcfcKFnegogjJkr
+      password: 4bker.EkyR8h7dbi91Zr1_BzS+6ZGB.v0sYs-G+NeJTs,PximfFU0iZHMQOWon9qED2thgPI+a.4qP,QZL9Cl.gMh7,DSjo+15ZQ5zoB4zB6kr0m3X0Fn-TUm3P_2AAX
+      schema-action: NONE
       request:
         timeout: 10s
       connection:
         connection-timeout: 10s
         init-query-timeout: 10s
+
 datastax.astra:
   secure-connect-bundle: secure-connect-myreads.zip
 astra.db:
-  id:
+  id: 8eccd1c0-863a-4f8b-a9b0-df6d67a36a75-1
   region: us-central1
   keyspace: myreads
-  application.token:
+  application.token: AstraCS:csDroILwWBcfcKFnegogjJkr:ef665f0dd63e2df546098d5f61c8d554eb3387491141b3d83bc641f9f1a6e109
+server:
+  servlet:
+    context-path: /sathishbooks

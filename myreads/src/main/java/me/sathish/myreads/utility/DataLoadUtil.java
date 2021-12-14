@@ -1,4 +1,4 @@
-package me.sathish.myreads;
+package me.sathish.myreads.utility;
 
 import me.sathish.myreads.author.Author;
 import me.sathish.myreads.author.AuthorRepo;
@@ -33,7 +33,7 @@ public class DataLoadUtil {
                     author.setName(jsonObject.optString("name"));
                     author.setPersonalName(jsonObject.optString("personal_name"));
                     author.setId(jsonObject.optString("key").replaceAll("/authors/", ""));
-//                    authorRepo.save(author);
+                    authorRepo.save(author);
                     System.out.println("Saving record for author " + author.getName());
                 } catch (JSONException e) {
                     System.err.println("Skipping record for jsonString " + e.getLocalizedMessage());
@@ -88,6 +88,8 @@ public class DataLoadUtil {
                     bookRepo.save(book);
                 } catch (JSONException jsonException) {
                     System.err.println("Skipping record for Book JSONString " + jsonException.getLocalizedMessage());
+                } catch(Exception e){
+                    System.err.println("Skipping record for Book JSONString " + e.getLocalizedMessage());
                 }
             });
         } catch (IOException ios) {
