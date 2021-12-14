@@ -16,7 +16,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
         // @formatter:off
         http
                 .authorizeRequests(a -> a
-                        .antMatchers("/", "/error").permitAll()
+                        .antMatchers("/sathishbooks", "/error").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e
@@ -26,9 +26,9 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 )
                 .logout(l -> l
-                        .logoutSuccessUrl("/").permitAll()
+                        .logoutSuccessUrl("/sathishbooks").permitAll()
                 )
-                .oauth2Login();
+                .oauth2Login().loginProcessingUrl("/sathishbooks/**");
         // @formatter:on
     }
 

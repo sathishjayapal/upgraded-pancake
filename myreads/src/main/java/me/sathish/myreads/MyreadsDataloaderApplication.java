@@ -3,6 +3,8 @@ package me.sathish.myreads;
 import me.sathish.myreads.author.AuthorRepo;
 import me.sathish.myreads.books.BookRepo;
 import me.sathish.myreads.dataloader.connection.DataStaxAstraProperties;
+import me.sathish.myreads.utility.DataLoadUtil;
+import me.sathish.myreads.utility.TimeIt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -39,10 +41,12 @@ public class MyreadsDataloaderApplication {
 
     @PostConstruct
     public void start() {
-        DataLoadUtil dataLoad = new DataLoadUtil();
-//        authorDataLoad.initAuthors(authorDumpLocation, authorRepo);
-        dataLoad.initBooks(worksDumpLocation,bookrRepo,authorRepo);
-        System.out.println("Application started");
+        TimeIt.code(() -> {
+            DataLoadUtil dataLoadUtil= new DataLoadUtil();
+//            dataLoadUtil.initAuthors(authorDumpLocation,authorRepo);
+//            dataLoadUtil.initBooks(worksDumpLocation,bookrRepo,authorRepo);
+            System.out.println("Authors loaded and application started");
+        });
     }
 
 
